@@ -4,9 +4,7 @@
 
 ![Profile Views](https://komarev.com/ghpvc/?username=jear-bear)
 
-# Jared Perlmutter
-
-こんにちは! 👋 I'm Jared, a passionate programmer with a strong interest in big-data, IoT, and emerging technologies. I thrive on exploring how technology can shape the future and love working on projects that challenge my skills and creativity.
+こんにちは! I'm Jared Perlmutter, a passionate programmer with a strong interest in big-data, IoT, and emerging technologies. I thrive on exploring how technology can shape the future and love working on projects that challenge my skills and creativity.
 
 ## Skills & Tech Stack
 
