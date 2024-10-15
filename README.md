@@ -10,7 +10,7 @@
 
 <style>
   :root {
-    --icon-spacing: 20px;
+    --icon-spacing: 200px;
   }
   .icon-container img {
     margin-right: var(--icon-spacing);
