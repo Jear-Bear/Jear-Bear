@@ -26,7 +26,7 @@
 
 ## Education
 
-- 🎓 **Waseda University**
+- 🎓 **Waseda University** (Summer 2023)
 - 🎓 **University of Texas at Dallas**
 
 ## Interests
