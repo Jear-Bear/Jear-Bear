@@ -33,7 +33,7 @@
 
 When I'm not programming, you can find me:
 - Traveling (especially to Japan) ✈️
-- Learning Japanese 🇯🇵
+- Learning Japanese :izakaya_lantern:
 - Weightlifting, playing water polo, and swimming 🏋️‍♂️🏊‍♂️
 - Producing music, cooking, and recording videos for the Japanese learning community 🎶🍳🎥
 
