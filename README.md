@@ -8,50 +8,42 @@
 
 ## Skills & Tech Stack
 
-<style>
-  :root {
-    --icon-spacing: 200px;
-  }
-  .icon-container img {
-    margin-right: var(--icon-spacing);
-  }
-</style>
-
 **Languages:**
-<div class="icon-container">
-  <img src="https://cdn.svgporn.com/logos/javascript.svg" alt="JavaScript" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/java.svg" alt="Java" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/c-plusplus.svg" alt="C++" height="30"/>
-  <img src="https://raw.githubusercontent.com/gist/Xainey/d5bde7d01dcbac51ac951810e94313aa/raw/6c858c46726541b48ddaaebab29c41c07a196394/PowerShell.svg" alt="PowerShell" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/html-5.svg" alt="HTML" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/python.svg" alt="Python" height="30"/>
+<div>
+  <img src="https://cdn.svgporn.com/logos/javascript.svg" alt="JavaScript" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/java.svg" alt="Java" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/c-plusplus.svg" alt="C++" height="30" style="margin-right: 30px;"/>
+  <img src="https://raw.githubusercontent.com/gist/Xainey/d5bde7d01dcbac51ac951810e94313aa/raw/6c858c46726541b48ddaaebab29c41c07a196394/PowerShell.svg" alt="PowerShell" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/html-5.svg" alt="HTML" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/python.svg" alt="Python" height="30" style="margin-right: 30px;"/>
 </div>
 
 **Libraries/Tools:**
-<div class="icon-container">
-  <img src="https://cdn.svgporn.com/logos/opencv.svg" alt="OpenCV" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/npm.svg" alt="NPM" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/sap.svg" alt="SAP" height="30"/>
+<div>
+  <img src="https://cdn.svgporn.com/logos/opencv.svg" alt="OpenCV" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/npm.svg" alt="NPM" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/sap.svg" alt="SAP" height="30" style="margin-right: 30px;"/>
 </div>
 
 **IDEs:**
-<div class="icon-container">
-  <img src="https://cdn.svgporn.com/logos/eclipse.svg" alt="Eclipse" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/visual-studio-code.svg" alt="Visual Studio Code" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/visual-studio.svg" alt="Visual Studio SQL" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/intellij-idea.svg" alt="IntelliJ" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/mysql.svg" alt="MySQL Workbench" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/oracle.svg" alt="Oracle Live SQL" height="30"/>
+<div>
+  <img src="https://cdn.svgporn.com/logos/eclipse.svg" alt="Eclipse" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/visual-studio-code.svg" alt="Visual Studio Code" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/visual-studio.svg" alt="Visual Studio SQL" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/intellij-idea.svg" alt="IntelliJ" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/mysql.svg" alt="MySQL Workbench" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/oracle.svg" alt="Oracle Live SQL" height="30" style="margin-right: 30px;"/>
 </div>
 
 **Applications:**
-<div class="icon-container">
-  <img src="https://cdn.svgporn.com/logos/unity.svg" alt="Unity" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/adobe-photoshop.svg" alt="Photoshop" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/adobe-premiere.svg" alt="Premiere Pro" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/blender.svg" alt="Blender" height="30"/>
-  <img src="https://cdn.svgporn.com/logos/notion.svg" alt="Notion" height="30"/>
+<div>
+  <img src="https://cdn.svgporn.com/logos/unity.svg" alt="Unity" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/adobe-photoshop.svg" alt="Photoshop" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/adobe-premiere.svg" alt="Premiere Pro" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/blender.svg" alt="Blender" height="30" style="margin-right: 30px;"/>
+  <img src="https://cdn.svgporn.com/logos/notion.svg" alt="Notion" height="30" style="margin-right: 30px;"/>
 </div>
+
 
 ## Current Projects
 
