@@ -1,4 +1,4 @@
-[![header](./banner.png)](https://jaredperlmutter.com)
+[![header](./bannerer.png)](https://jaredperlmutter.com)
 
 ## Hi there, I'm Jared! 👋
 
