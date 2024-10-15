@@ -29,7 +29,7 @@
 <div>
   <img src="https://cdn.svgporn.com/logos/eclipse.svg" alt="Eclipse" height="30" style="margin: 0 5px;"/>
   <img src="https://cdn.svgporn.com/logos/visualstudio-code.svg" alt="Visual Studio Code" height="30" style="margin: 0 5px;"/>
-  <img src="https://cdn.svgporn.com/logos/visual-studio.svg" alt="Visual Studio SQL" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/visual-studio.svg" alt="Visual Studio" height="30" style="margin: 0 5px;"/>
   <img src="https://cdn.svgporn.com/logos/intellij.svg" alt="IntelliJ" height="30" style="margin: 0 5px;"/>
   <img src="https://cdn.svgporn.com/logos/mysql.svg" alt="MySQL Workbench" height="30" style="margin: 0 5px;"/>
   <img src="https://cdn.svgporn.com/logos/oracle.svg" alt="Oracle Live SQL" height="30" style="margin: 0 5px;"/>
