@@ -9,32 +9,33 @@
 ## Skills & Tech Stack
 
 **Languages:**
-- ![JavaScript](https://svglogos.dev/logos/javascript.svg) JavaScript
-- ![Java](https://svglogos.dev/logos/java.svg) Java
-- ![C++](https://svglogos.dev/logos/c-plusplus.svg) C++
-- ![PowerShell](https://svglogos.dev/logos/powershell.svg) PowerShell
-- ![HTML](https://svglogos.dev/logos/html-5.svg) HTML
-- ![Python](https://svglogos.dev/logos/python.svg) Python
+- ![JavaScript](https://cdn.svgporn.com/logos/javascript.svg) JavaScript
+- ![Java](https://cdn.svgporn.com/logos/java.svg) Java
+- ![C++](https://cdn.svgporn.com/logos/c-plusplus.svg) C++
+- ![PowerShell](https://cdn.svgporn.com/logos/powershell.svg) PowerShell
+- ![HTML](https://cdn.svgporn.com/logos/html-5.svg) HTML
+- ![Python](https://cdn.svgporn.com/logos/python.svg) Python
 
 **Libraries/Tools:**
-- ![OpenCV](https://svglogos.dev/logos/opencv.svg) OpenCV
-- ![NPM](https://svglogos.dev/logos/npm.svg) NPM
-- ![SAP](https://svglogos.dev/logos/sap.svg) Various SAP Applications
+- ![OpenCV](https://cdn.svgporn.com/logos/opencv.svg) OpenCV
+- ![NPM](https://cdn.svgporn.com/logos/npm.svg) NPM
+- ![SAP](https://cdn.svgporn.com/logos/sap.svg) Various SAP Applications
 
 **IDEs:**
-- ![Eclipse](https://svglogos.dev/logos/eclipse.svg) Eclipse
-- ![Visual Studio Code](https://svglogos.dev/logos/visualstudio-code.svg) Visual Studio Code
-- ![Visual Studio SQL](https://svglogos.dev/logos/visual-studio.svg) Visual Studio SQL
-- ![IntelliJ](https://svglogos.dev/logos/intellij.svg) IntelliJ
-- ![MySQL Workbench](https://svglogos.dev/logos/mysql.svg) MySQL Workbench
-- ![Oracle Live SQL](https://svglogos.dev/logos/oracle.svg) Oracle Live SQL
+- ![Eclipse](https://cdn.svgporn.com/logos/eclipse.svg) Eclipse
+- ![Visual Studio Code](https://cdn.svgporn.com/logos/visualstudio-code.svg) Visual Studio Code
+- ![Visual Studio SQL](https://cdn.svgporn.com/logos/visual-studio.svg) Visual Studio SQL
+- ![IntelliJ](https://cdn.svgporn.com/logos/intellij.svg) IntelliJ
+- ![MySQL Workbench](https://cdn.svgporn.com/logos/mysql.svg) MySQL Workbench
+- ![Oracle Live SQL](https://cdn.svgporn.com/logos/oracle.svg) Oracle Live SQL
 
 **Applications:**
-- ![Unity](https://svglogos.dev/logos/unity.svg) Unity
-- ![Photoshop](https://svglogos.dev/logos/photoshop.svg) Photoshop
-- ![Premiere Pro](https://svglogos.dev/logos/adobe-premiere.svg) Premiere Pro
-- ![Blender](https://svglogos.dev/logos/blender.svg) Blender
-- ![Notion](https://svglogos.dev/logos/notion.svg) Notion
+- ![Unity](https://cdn.svgporn.com/logos/unity.svg) Unity
+- ![Photoshop](https://cdn.svgporn.com/logos/photoshop.svg) Photoshop
+- ![Premiere Pro](https://cdn.svgporn.com/logos/adobe-premiere.svg) Premiere Pro
+- ![Blender](https://cdn.svgporn.com/logos/blender.svg) Blender
+- ![Notion](https://cdn.svgporn.com/logos/notion.svg) Notion
+
 
 ## Current Projects
 
