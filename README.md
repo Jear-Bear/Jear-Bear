@@ -9,32 +9,41 @@
 ## Skills & Tech Stack
 
 **Languages:**
-- ![JavaScript](https://cdn.svgporn.com/logos/javascript.svg) JavaScript
-- ![Java](https://cdn.svgporn.com/logos/java.svg) Java
-- ![C++](https://cdn.svgporn.com/logos/c-plusplus.svg) C++
-- ![PowerShell](https://cdn.svgporn.com/logos/powershell.svg) PowerShell
-- ![HTML](https://cdn.svgporn.com/logos/html-5.svg) HTML
-- ![Python](https://cdn.svgporn.com/logos/python.svg) Python
+<div>
+  <img src="https://cdn.svgporn.com/logos/javascript.svg" alt="JavaScript" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/java.svg" alt="Java" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/c-plusplus.svg" alt="C++" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/powershell.svg" alt="PowerShell" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/html-5.svg" alt="HTML" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/python.svg" alt="Python" height="30" style="margin: 0 5px;"/>
+</div>
 
 **Libraries/Tools:**
-- ![OpenCV](https://cdn.svgporn.com/logos/opencv.svg) OpenCV
-- ![NPM](https://cdn.svgporn.com/logos/npm.svg) NPM
-- ![SAP](https://cdn.svgporn.com/logos/sap.svg) Various SAP Applications
+<div>
+  <img src="https://cdn.svgporn.com/logos/opencv.svg" alt="OpenCV" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/npm.svg" alt="NPM" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/sap.svg" alt="SAP" height="30" style="margin: 0 5px;"/>
+</div>
 
 **IDEs:**
-- ![Eclipse](https://cdn.svgporn.com/logos/eclipse.svg) Eclipse
-- ![Visual Studio Code](https://cdn.svgporn.com/logos/visualstudio-code.svg) Visual Studio Code
-- ![Visual Studio SQL](https://cdn.svgporn.com/logos/visual-studio.svg) Visual Studio SQL
-- ![IntelliJ](https://cdn.svgporn.com/logos/intellij.svg) IntelliJ
-- ![MySQL Workbench](https://cdn.svgporn.com/logos/mysql.svg) MySQL Workbench
-- ![Oracle Live SQL](https://cdn.svgporn.com/logos/oracle.svg) Oracle Live SQL
+<div>
+  <img src="https://cdn.svgporn.com/logos/eclipse.svg" alt="Eclipse" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/visualstudio-code.svg" alt="Visual Studio Code" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/visual-studio.svg" alt="Visual Studio SQL" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/intellij.svg" alt="IntelliJ" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/mysql.svg" alt="MySQL Workbench" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/oracle.svg" alt="Oracle Live SQL" height="30" style="margin: 0 5px;"/>
+</div>
 
 **Applications:**
-- ![Unity](https://cdn.svgporn.com/logos/unity.svg) Unity
-- ![Photoshop](https://cdn.svgporn.com/logos/photoshop.svg) Photoshop
-- ![Premiere Pro](https://cdn.svgporn.com/logos/adobe-premiere.svg) Premiere Pro
-- ![Blender](https://cdn.svgporn.com/logos/blender.svg) Blender
-- ![Notion](https://cdn.svgporn.com/logos/notion.svg) Notion
+<div>
+  <img src="https://cdn.svgporn.com/logos/unity.svg" alt="Unity" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/photoshop.svg" alt="Photoshop" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/adobe-premiere.svg" alt="Premiere Pro" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/blender.svg" alt="Blender" height="30" style="margin: 0 5px;"/>
+  <img src="https://cdn.svgporn.com/logos/notion.svg" alt="Notion" height="30" style="margin: 0 5px;"/>
+</div>
+
 
 
 ## Current Projects
