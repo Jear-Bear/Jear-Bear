@@ -42,8 +42,8 @@ When I'm not programming, you can find me:
 - 📧 Email: [jperlmutter1@gmail.com](mailto:jperlmutter1@gmail.com)
 - 💼 LinkedIn: [Jared Perlmutter](https://www.linkedin.com/in/jaredperlmutter)
 
----
+## Quote I Live By
+*"一日を甘んじて、悠々生きるのは大切だ"*
 
-"一日を甘んじて、悠々生きるのは大切だ"  
 *It's important to live each day with ease and acceptance.*
 
