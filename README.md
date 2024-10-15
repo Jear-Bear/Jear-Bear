@@ -9,16 +9,32 @@
 ## Skills & Tech Stack
 
 **Languages:**
-- JavaScript, Java, C++, PowerShell, HTML, Python
+- ![JavaScript](https://svglogos.dev/logos/javascript.svg) JavaScript
+- ![Java](https://svglogos.dev/logos/java.svg) Java
+- ![C++](https://svglogos.dev/logos/c-plusplus.svg) C++
+- ![PowerShell](https://svglogos.dev/logos/powershell.svg) PowerShell
+- ![HTML](https://svglogos.dev/logos/html-5.svg) HTML
+- ![Python](https://svglogos.dev/logos/python.svg) Python
 
 **Libraries/Tools:**
-- OpenCV, NPM, Various SAP Applications
+- ![OpenCV](https://svglogos.dev/logos/opencv.svg) OpenCV
+- ![NPM](https://svglogos.dev/logos/npm.svg) NPM
+- ![SAP](https://svglogos.dev/logos/sap.svg) Various SAP Applications
 
 **IDEs:**
-- Eclipse, Visual Studio Code, Visual Studio SQL, IntelliJ, MySQL Workbench, Oracle Live SQL
+- ![Eclipse](https://svglogos.dev/logos/eclipse.svg) Eclipse
+- ![Visual Studio Code](https://svglogos.dev/logos/visualstudio-code.svg) Visual Studio Code
+- ![Visual Studio SQL](https://svglogos.dev/logos/visual-studio.svg) Visual Studio SQL
+- ![IntelliJ](https://svglogos.dev/logos/intellij.svg) IntelliJ
+- ![MySQL Workbench](https://svglogos.dev/logos/mysql.svg) MySQL Workbench
+- ![Oracle Live SQL](https://svglogos.dev/logos/oracle.svg) Oracle Live SQL
 
 **Applications:**
-- Unity, Photoshop, Premiere Pro, Blender, Notion
+- ![Unity](https://svglogos.dev/logos/unity.svg) Unity
+- ![Photoshop](https://svglogos.dev/logos/photoshop.svg) Photoshop
+- ![Premiere Pro](https://svglogos.dev/logos/adobe-premiere.svg) Premiere Pro
+- ![Blender](https://svglogos.dev/logos/blender.svg) Blender
+- ![Notion](https://svglogos.dev/logos/notion.svg) Notion
 
 ## Current Projects
 
