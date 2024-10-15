@@ -22,7 +22,7 @@
 
 ## Current Projects
 
-- 🌐 I'm currently working on a **website project** using Babylon.js and LiquidFun, blending physics simulations with interactive 3D graphics.
+- 🌐 I'm currently working on a **website project** using Babylon.js and LiquidFun, blending physics simulations with interactive 2D graphics.
 
 ## Education
 
