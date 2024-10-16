@@ -1,20 +1,29 @@
-import requests
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+import time
 
-url = 'https://github.com/Jear-Bear'
-response = requests.get(url)
+# Set up Chrome options
+chrome_options = Options()
+chrome_options.add_argument("--headless")  # Run headless Chrome
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
 
-# Check if the request was successful
-if response.status_code == 200:
-    html_content = response.text
+# Create a new instance of the Chrome driver
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
-    # Split the HTML content into lines
-    lines = html_content.splitlines()
+try:
+    url = 'https://github.com/Jear-Bear'
+    driver.get(url)
 
-    # Filter lines that contain the word "commit"
-    commit_lines = [line for line in lines if 'contribution' in line.lower()]
+    # Wait for the page to load (you might need to adjust the sleep time)
+    time.sleep(3)
 
-    # Output the filtered lines
-    for line in commit_lines:
-        print(line)
-else:
-    print(f"Failed to retrieve the page. Status code: {response.status_code}")
+    # Get the page source
+    html_content = driver.page_source
+
+    # Print the HTML content (you can also write this to a file)
+    print(html_content)
+finally:
+    driver.quit()
