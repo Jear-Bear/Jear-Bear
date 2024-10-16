@@ -4,8 +4,8 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import time
-import os
 
+# Initialize the Chrome driver
 service = Service(executable_path=r'/usr/bin/chromedriver')
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
@@ -22,31 +22,35 @@ time.sleep(5)
 # Extract the HTML content
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find the contributions block
-contribution_activity = None
+# Find the contributions line
+commits_line = None
 for line in soup.find_all(string=True):
     if line.startswith("Created"):
-        contribution_activity = line
+        commits_line = line.strip()
         break
 
-if contribution_activity:
-    # Split the line and extract the number of commits
-    commit_count = contribution_activity.split()[1]
+# Check if commits_line has a valid value
+if commits_line:
+    # Split the line by spaces and extract the commit number
+    commits_number = commits_line.split()[1]  # Extracting the second element
+    print(f"Commit number extracted: {commits_number}")
 
-    # Read the README.md file
+    # Update README.md with the new commit number
     with open("README.md", "r") as file:
-        lines = file.readlines()
+        content = file.readlines()
 
-    # Update the specific line
-    for i, line in enumerate(lines):
-        if "![Total Commits](https://img.shields.io/badge/Total_Commits-" in line:
-            # Replace the number with the actual commit count
-            lines[i] = line.split("Total_Commits-")[0] + f"Total_Commits-{commit_count}-green)" + "\n"
+    # Replace the line with the commit number
+    for index, line in enumerate(content):
+        if "![Total Commits]" in line:
+            content[index] = f"![Total Commits](https://img.shields.io/badge/Total_Commits-{commits_number}-green)\n"
             break
 
-    # Write the updated lines back to the README.md file
+    # Write the updated content back to README.md
     with open("README.md", "w") as file:
-        file.writelines(lines)
+        file.writelines(content)
+
+else:
+    print("No contributions found")
 
 # Close the driver
 driver.quit()
