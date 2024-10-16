@@ -1,13 +1,9 @@
 [![header](./banner.png)](https://jaredperlmutter.com)
 [![Profile Views](https://komarev.com/ghpvc/?username=jear-bear)](https://github.com/jear-bear)
+![GitHub Total Commits](https://img.shields.io/github/commit-activity/all/jear-bear/jear-bear?label=Total%20Commits&logo=github&color=blue)
+![GitHub Total Stars](https://img.shields.io/github/stars/jear-bear?label=Total%20Stars&logo=github&color=yellow)
 
 ## Hi there, I'm Jared! 👋
-
-
-![GitHub Commits](https://img.shields.io/github/commit-activity/y/jear-bear/jear-bear?label=Commits&logo=github&color=blue)
-![GitHub Stars](https://img.shields.io/github/stars/jear-bear/jear-bear?label=Stars&logo=github&color=yellow)
-
-
 
 こんにちは! I'm Jared Perlmutter, a passionate programmer with a strong interest in big-data, IoT, and emerging technologies. I thrive on exploring how technology can shape the future and love working on projects that challenge my skills and creativity.
 
