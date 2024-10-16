@@ -1,22 +1,34 @@
-import requests
+from selenium import webdriver
 from bs4 import BeautifulSoup
+import time
 
-# Define the GitHub URL for your profile
+# Set up Selenium WebDriver (e.g., using Chrome WebDriver)
+driver = webdriver.Chrome()  # Make sure you have the ChromeDriver installed and in your PATH
 url = "https://github.com/Jear-Bear"
+driver.get(url)
 
-# Send an HTTP request to the URL
-response = requests.get(url)
-soup = BeautifulSoup(response.text, 'html.parser')
+# Let the page load completely
+time.sleep(3)
+
+# Get page source and parse it with BeautifulSoup
+soup = BeautifulSoup(driver.page_source, 'html.parser')
 
 # Find the total contributions text
-contributions_section = soup.find('div', class_='js-early-contributions')
-contributions_text = contributions_section.find('h2', class_='f4 text-normal mb-2').text.strip()
+contributions_section = soup.find('h2', class_='f4 text-normal mb-2')
 
-# Extract the number of contributions
-total_commits = contributions_text.split()[0]
+if contributions_section:
+    contributions_text = contributions_section.text.strip()
 
-# Write the total commits to a file
-with open('total_commits.txt', 'w') as file:
-    file.write(total_commits)
+    # Extract the number of contributions
+    total_commits = contributions_text.split()[0]
 
-print(f"Total commits: {total_commits}")
+    # Write the total commits to a file
+    with open('total_commits.txt', 'w') as file:
+        file.write(total_commits)
+
+    print(f"Total commits: {total_commits}")
+else:
+    print("Could not find the contributions section.")
+
+# Close the WebDriver session
+driver.quit()
