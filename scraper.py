@@ -24,7 +24,7 @@ chrome_service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
 # Navigate to your desired URL
-driver.get('http://nytimes.com')
+driver.get('https://github.com/Jear-Bear')
 
 # Print the page title
 print(driver.title)
