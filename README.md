@@ -1,9 +1,11 @@
 [![header](./banner.png)](https://jaredperlmutter.com)
-[![Jared's GitHub stats](https://github-readme-stats.vercel.app/api?username=jear-bear&show_icons=true&count_private=true&include_all_commits=true)](https://github.com/jear-bear)
 
 ## Hi there, I'm Jared! 👋
 
-![Profile Views](https://komarev.com/ghpvc/?username=jear-bear)
+[![Profile Views](https://komarev.com/ghpvc/?username=jear-bear)](https://github.com/jear-bear)
+![Jared's GitHub Stats](https://github-readme-stats.vercel.app/api?username=jear-bear&show_icons=true&theme=radical)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=jear-bear&layout=compact&theme=radical)
+
 
 こんにちは! I'm Jared Perlmutter, a passionate programmer with a strong interest in big-data, IoT, and emerging technologies. I thrive on exploring how technology can shape the future and love working on projects that challenge my skills and creativity.
 
