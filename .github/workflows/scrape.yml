@@ -28,6 +28,11 @@ jobs:
       - name: Run the scraper
         run: python scraper.py
 
+      - name: Configure Git
+        run: |
+          git config --global user.email "jperlmutter1@gmail.com"  # Replace with your email
+          git config --global user.name "jear-bear"  # Replace with your name
+
       - name: Commit changes
         run: |
           git add README.md
