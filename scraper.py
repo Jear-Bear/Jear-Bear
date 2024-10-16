@@ -26,19 +26,16 @@ time.sleep(5)
 # Extract the page source and parse with BeautifulSoup
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find the element that contains "contributions in the last year"
-contributions_section = soup.find_all(string="contributions")
-if contributions_section:
-    for contribution in contributions_section:
-        # Find the parent of this string and extract the preceding number
-        parent = contribution.find_parent('h2')  # 'h2' might change depending on GitHub's HTML structure
-        if parent:
-            number = parent.get_text(strip=True).split()[0]  # Extract the first number in the text
-            print(f"Total contributions in the last year: {number}")
-        else:
-            print("Parent element containing contributions not found.")
-else:
-    print("Contributions section not found.")
+# Extract all the text from the page as a list of lines
+page_text = soup.get_text().splitlines()
+
+# Loop through each line to find the desired pattern
+for i in range(len(page_text) - 2):
+    if "contributions" in page_text[i + 1] and "in the last year" in page_text[i + 2]:
+        print(f"Line containing number: {page_text[i]}")
+        print(f"Line with 'contributions': {page_text[i + 1]}")
+        print(f"Line with 'in the last year': {page_text[i + 2]}")
+        break
 
 # Close the browser
 driver.quit()
