@@ -4,8 +4,11 @@
 ## Hi there, I'm Jared! 👋
 
 
-![Jared's GitHub Stats](https://github-readme-stats.vercel.app/api?username=jear-bear&show_icons=true&theme=radical)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=jear-bear&layout=compact&theme=radical)
+<div style="height: 150px; display: flex;">
+  <img src="https://github-readme-stats.vercel.app/api?username=jear-bear&show_icons=true&theme=radical&hide=contribs,prs&line_height=20" style="height: 100%;" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jear-bear&layout=compact&theme=radical" style="height: 100%;" />
+</div>
+
 
 こんにちは! I'm Jared Perlmutter, a passionate programmer with a strong interest in big-data, IoT, and emerging technologies. I thrive on exploring how technology can shape the future and love working on projects that challenge my skills and creativity.
 
