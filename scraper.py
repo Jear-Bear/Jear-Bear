@@ -26,13 +26,18 @@ soup = BeautifulSoup(driver.page_source, 'html.parser')
 # Find all text lines that contain "Created"
 contributions = soup.find_all(string=lambda text: text and "Created" in text)
 
-# Print each line that contains "Created"
+# Check if there are any contributions
 if contributions:
-    for line in contributions:
-        # Clean the output and filter for the specific line
-        line = line.strip()
-        if line.startswith("Created"):
-            print(line)
+    # Get the first line that starts with "Created"
+    first_line = next((line.strip() for line in contributions if line.startswith("Created")), None)
+
+    if first_line:
+        # Print the first line
+        print(first_line)
+
+        # Save the first line to commits.txt
+        with open("commits.txt", "w") as file:
+            file.write(first_line)
 else:
     print("No contributions found.")
 
