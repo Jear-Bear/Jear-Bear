@@ -23,11 +23,11 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
-          pip install selenium webdriver-manager beautifulsoup4
+          pip install beautifulsoup4 selenium webdriver-manager
 
-      - name: Run the Python scraper
+      - name: Run Python Scraper
         run: python scraper.py
 
       - name: Configure Git
@@ -43,6 +43,4 @@ jobs:
           git add commits.txt
           timestamp=$(date -u)
           git commit -m "Latest data: ${timestamp}" || exit 0
-
-      - name: Push changes
-        run: git push origin main
+          git push
