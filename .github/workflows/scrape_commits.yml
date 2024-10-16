@@ -1,48 +1,40 @@
-name: Scrape Commits and Update File
+name: Update Commits
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily
-  workflow_dispatch:  # Allows manual triggering
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:
 
 jobs:
-  scrape_commits:
+  update_commits:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repo
+    - name: Checkout repository
       uses: actions/checkout@v2
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.x'
+        python-version: '3.12'
 
-  - name: Install Dependencies
-    run: |
-      pip install selenium beautifulsoup4
-      sudo apt-get update
-      sudo apt-get install -y wget unzip xvfb
-      sudo apt-get install -y chromium-browser
-      # Update to match the installed Chrome version
-      wget -N https://chromedriver.storage.googleapis.com/129.0.6638.0/chromedriver_linux64.zip
-      unzip chromedriver_linux64.zip
-      sudo mv chromedriver /usr/local/bin/chromedriver
-      sudo chmod +x /usr/local/bin/chromedriver
-  
-
-    - name: Run Selenium Script
+    - name: Install Dependencies
       run: |
-        Xvfb :99 &  # Start Xvfb for headless Chrome
-        export DISPLAY=:99
-        python get_commits.py
+        pip install selenium beautifulsoup4
+        sudo apt-get update
+        sudo apt-get install -y wget unzip xvfb
+        sudo apt-get install -y chromium-browser
+        # Update ChromeDriver to match installed Chrome version
+        wget -N https://chromedriver.storage.googleapis.com/129.0.6638.0/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/local/bin/chromedriver
+        sudo chmod +x /usr/local/bin/chromedriver
 
-    - name: Commit and Push Results
-      run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git add commits.md
-        git commit -m "Update commits.md with total commits"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Run Xvfb for headless Chrome
+      run: Xvfb :99 &
+
+    - name: Run Python Script
+      run: python get_commits.py
+
+    - name: Read the total commits from the file
+      run: cat total_commits.txt
