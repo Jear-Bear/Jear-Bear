@@ -2,7 +2,7 @@ name: Scrape GitHub Commits
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour (you can adjust this)
+    - cron: '0 * * * *'  # This will run the workflow every hour (adjust as needed)
 
 jobs:
   scrape:
@@ -22,4 +22,4 @@ jobs:
         pip install selenium beautifulsoup4 webdriver-manager
 
     - name: Run get_commits.py
-      run: python get_commits.py  # This will now output directly to the terminal
+      run: python get_commits.py  # Outputs the total commits to the terminal
