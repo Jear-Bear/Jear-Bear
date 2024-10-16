@@ -2,6 +2,9 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from bs4 import BeautifulSoup
+import time
+import os
 
 # Set up the Chrome driver options
 chrome_options = Options()
@@ -20,10 +23,10 @@ for option in options:
 # Set up the Chrome driver service
 chrome_service = Service(ChromeDriverManager().install())
 
-# Initialize the Chrome driver with service and options
+# Initialize the Chrome driver
 driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
-# Your scraping logic goes here
+# Navigate to the GitHub profile page
 driver.get("https://github.com/Jear-Bear")
 
 # Wait for the page to load
@@ -33,25 +36,25 @@ time.sleep(5)
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
 # Find the contributions block
-contribution_block = None
-for line in soup.find_all(string=True):
-    if "contributions" in line and "in the last year" in line.next_element:
-        contribution_block = line.previous_element.strip()
-        break
+contributions = soup.find_all(text="contributions")
+for i in range(len(contributions)):
+    if "contributions" in contributions[i]:
+        if i + 1 < len(contributions) and "in the last year" in contributions[i + 1]:
+            # Get the number of contributions
+            number_line = contributions[i - 1]  # This should be the number line
+            contribution_number = number_line.strip()  # Clean up spaces
+            print("Contributions in the last year:", contribution_number)
 
-# Check if contribution_block has a valid value
-if contribution_block:
-    # Clean up the number by removing spaces/newlines
-    contribution_count = contribution_block.replace(" ", "").strip()
-
-    # Print the result
-    print(f"Total contributions: {contribution_count}")
-
-    # Save the contribution count to a file
-    with open("commits.txt", "w") as file:
-        file.write(contribution_count)
-else:
-    print("No contributions found")
+            # Save the number to a file
+            with open("commits.txt", "w") as file:
+                file.write(contribution_number)
 
 # Close the driver
 driver.quit()
+
+# Git configuration and commit
+os.system("git config user.name 'Automated'")
+os.system("git config user.email 'actions@users.noreply.github.com'")
+os.system("git add commits.txt")
+os.system("git commit -m 'Update commits.txt with latest contributions'")
+os.system("git push")
