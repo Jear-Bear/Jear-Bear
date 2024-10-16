@@ -20,7 +20,7 @@ soup = BeautifulSoup(driver.page_source, 'html.parser')
 total_commits = soup.find('h2', class_='f4 text-normal mb-2').get_text(strip=True)
 
 # Output the total commits count to the terminal
-print(total_commits)
+print(total_commits)  # This will print to the terminal
 
 # Close the driver
 driver.quit()
