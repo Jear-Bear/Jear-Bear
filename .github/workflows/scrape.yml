@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: write  # Allow the bot to push changes to the repo
-  pages: write
-  id-token: write
 
 jobs:
   scrape:
@@ -23,7 +21,6 @@ jobs:
         with:
           python-version: '3.9'
 
-      # Install dependencies (if you have any)
       - name: Install dependencies
         run: |
           pip install selenium beautifulsoup4 webdriver-manager
@@ -31,15 +28,6 @@ jobs:
       - name: Run the scraper
         run: python scraper.py
 
-      - name: Configure Git
-        run: |
-          git config user.name "Automated"
-          git config user.email "actions@users.noreply.github.com"
-
-      - name: Check for changes in README.md
-        run: |
-          cat README.md  # This will print the content of the README.md file before any changes
-          
       - name: Commit changes
         run: |
           git add README.md
@@ -50,5 +38,3 @@ jobs:
           else
             echo "No changes to commit"
           fi
-
-
