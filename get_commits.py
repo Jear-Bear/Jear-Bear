@@ -1,35 +1,14 @@
-from selenium import webdriver
-from bs4 import BeautifulSoup
-import time
+import requests
 
-# Set up Selenium WebDriver (e.g., using Chrome WebDriver)
-#yes
-driver = webdriver.Chrome()  # Make sure ChromeDriver is installed and in PATH
-url = "https://github.com/Jear-Bear"
-driver.get(url)
+# Hardcoded URL
+url = 'https://github.com/Jear-Bear'
 
-# Let the page load completely
-time.sleep(3)
+# Fetch HTML from the specified URL
+response = requests.get(url)
 
-# Get page source and parse it with BeautifulSoup
-soup = BeautifulSoup(driver.page_source, 'html.parser')
-
-# Find the total contributions text
-contributions_section = soup.find('h2', class_='f4 text-normal mb-2')
-
-if contributions_section:
-    contributions_text = contributions_section.text.strip()
-
-    # Extract the number of contributions
-    total_commits = contributions_text.split()[0]
-
-    # Write the total commits to a file
-    with open('total_commits.txt', 'w') as file:
-        file.write(total_commits)
-
-    print(f"Total commits: {total_commits}")
+# Check if the request was successful
+if response.status_code == 200:
+    html_content = response.text
+    print(html_content)
 else:
-    print("Could not find the contributions section.")
-
-# Close the WebDriver session
-driver.quit()
+    print(f"Failed to retrieve HTML. Status code: {response.status_code}")
