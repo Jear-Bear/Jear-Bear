@@ -1,4 +1,4 @@
-name: Fetch Commits
+name: Update Commits
 
 on:
   push:
