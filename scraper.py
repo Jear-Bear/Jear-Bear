@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import time
 import os
 
+# Set up Chrome driver with service and options
 service = Service(executable_path=r'/usr/bin/chromedriver')
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
@@ -22,25 +23,27 @@ time.sleep(5)
 # Extract the HTML content
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find the contributions block
-contribution_block = None
+# Find and print all lines containing "contributions"
+found_contributions = False
+
 for line in soup.find_all(string=True):
-    if "contributions" in line and "in the last year" in line.next_element:
-        contribution_block = line.previous_element.strip()
-        break
+    if "contributions" in line:
+        found_contributions = True
+        print(f"Line with 'contributions': {line.strip()}")
+        
+        # Attempt to extract the number from the previous element
+        if line.previous_element and line.previous_element.strip().isdigit():
+            contribution_count = line.previous_element.strip()
+            print(f"Total contributions: {contribution_count}")
+            
+            # Save the contribution count to a file
+            with open("commits.txt", "w") as file:
+                file.write(contribution_count)
+        else:
+            print("Unable to find a number for contributions.")
 
-# Check if contribution_block has a valid value
-if contribution_block:
-    # Clean up the number by removing spaces/newlines
-    contribution_count = contribution_block.replace(" ", "").strip()
-
-    # Print the result
-    print(f"Total contributions: {contribution_count}")
-
-    # Save the contribution count to a file
-    with open("commits.txt", "w") as file:
-        file.write(contribution_count)
-else:
+# If nothing was found, print a message
+if not found_contributions:
     print("No contributions found")
 
 # Close the driver
