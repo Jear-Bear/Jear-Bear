@@ -44,10 +44,11 @@ jobs:
         run: |
           git add README.md
           git status  # Check the status before committing
-          if [[ \`git status --porcelain\` ]]; then
+          if [ "$(git status --porcelain)" ]; then
             git commit -m "Updated commits number"
             git push
           else
             echo "No changes to commit"
           fi
+
 
