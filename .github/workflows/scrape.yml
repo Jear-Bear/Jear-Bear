@@ -36,13 +36,18 @@ jobs:
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
 
-      - name: Check for changes and commit
+      - name: Check for changes in README.md
         run: |
-          if [[ `git status --porcelain` ]]; then
-            git add README.md
-            timestamp=$(date -u)
-            git commit -m "Update total commits: ${timestamp}" || exit 0
+          cat README.md  # This will print the content of the README.md file before any changes
+          
+      - name: Commit changes
+        run: |
+          git add README.md
+          git status  # Check the status before committing
+          if [[ \`git status --porcelain\` ]]; then
+            git commit -m "Updated commits number"
             git push
           else
             echo "No changes to commit"
           fi
+
