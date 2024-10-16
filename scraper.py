@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import time
-import re  # Import the regex module
+import re
 
 # Set up Chrome WebDriver with options
 service = Service(executable_path=ChromeDriverManager().install())
@@ -24,42 +24,38 @@ time.sleep(5)
 # Extract the page source and parse it with BeautifulSoup
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find all text lines that contain "contributions in"
-lines = soup.find_all(string=lambda text: text and "contributions in" in text)
+# Find all text lines that contain "contributions"
+lines = soup.find_all(string=lambda text: text and "contributions" in text.lower())
 
-# Select the first line containing contributions
+# Check if the contributions count line is in the line text
 if lines:
-    first_line = lines[0].strip().replace('\n', ' ')
-    
-    # Print the first line
-    print(first_line)
+    for line in lines:
+        line = line.strip().replace('\n', ' ')
+        if "contributions" in line.lower():  # Ensure the search is case-insensitive
+            print(line)  # Print the line for debugging
+            # Use regex to find a four-digit number after "contributions in"
+            match = re.search(r'(\d{4})', line)
+            if match:
+                contributions_count = match.group(1)  # Extract the first match
+                print(f"Number of contributions: {contributions_count}")
 
-    # Use regex to find a four-digit number after "contributions in"
-    match = re.search(r'(\d{4})', first_line)
-    
-    if match:
-        contributions_count = match.group(1)  # Extract the first match (the four-digit number)
-        
-        # Print the extracted contributions count
-        print(f"Number of contributions: {contributions_count}")
+                # Replace the contributions count in README.md
+                with open("README.md", "r") as file:
+                    readme_content = file.readlines()
 
-        # Save the contributions count to README.md
-        with open("README.md", "r") as file:
-            content = file.readlines()
-        
-        # Update the specific line with the contributions count
-        for i in range(len(content)):
-            if "![Total Commits](https://img.shields.io/badge/Total_Commits-" in content[i]:
-                content[i] = f"![Total Commits](https://img.shields.io/badge/Total_Commits-{contributions_count}-green)\n"
-                break
-        
-        # Write the updated content back to the README.md file
-        with open("README.md", "w") as file:
-            file.writelines(content)
-    else:
-        print("No four-digit contributions count found.")
+                # Update the line with the new contributions count
+                for i, line in enumerate(readme_content):
+                    if "Total Commits" in line:
+                        readme_content[i] = line.replace("xxx", contributions_count)
+                        break
+
+                # Write back the updated README.md
+                with open("README.md", "w") as file:
+                    file.writelines(readme_content)
+
+                break  # Exit loop after finding the contributions count
 else:
-    print("No lines found containing 'contributions in'.")
+    print("No lines found containing 'contributions'.")
 
 # Close the driver
 driver.quit()
