@@ -20,31 +20,19 @@ driver.get("https://github.com/Jear-Bear")
 # Wait for the page to load
 time.sleep(5)
 
-# Extract the HTML content
+# Extract the HTML content using BeautifulSoup
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find and print all lines containing "contributions"
-found_contributions = False
+# Find and print all lines that contain the word 'contributions'
+contributions_found = False
+for line in soup.stripped_strings:
+    if 'contributions' in line:
+        contributions_found = True
+        print(line)
 
-for line in soup.find_all(string=True):
-    if "contributions" in line:
-        found_contributions = True
-        print(f"Line with 'contributions': {line.strip()}")
-        
-        # Attempt to extract the number from the previous element
-        if line.previous_element and line.previous_element.strip().isdigit():
-            contribution_count = line.previous_element.strip()
-            print(f"Total contributions: {contribution_count}")
-            
-            # Save the contribution count to a file
-            with open("commits.txt", "w") as file:
-                file.write(contribution_count)
-        else:
-            print("Unable to find a number for contributions.")
+# If no 'contributions' were found, print a message
+if not contributions_found:
+    print("No contributions found.")
 
-# If nothing was found, print a message
-if not found_contributions:
-    print("No contributions found")
-
-# Close the driver
+# Close the WebDriver
 driver.quit()
