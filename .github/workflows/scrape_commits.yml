@@ -22,15 +22,4 @@ jobs:
         pip install selenium beautifulsoup4 webdriver-manager
 
     - name: Run get_commits.py
-      run: python get_commits.py
-
-    - name: Display total commits
-      run: cat total_commits.txt
-
-    - name: Push changes to commits.md
-      run: |
-        git config --global user.email "jperlmutter1@example.com"
-        git config --global user.name "jaredperlmutter"
-        git add total_commits.txt  # or commits.md if you are updating that
-        git commit -m "Update total commits count" || echo "No changes to commit"
-        git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/Jear-Bear/Jear-Bear.git main --quiet --force
+      run: python get_commits.py  # This will now output directly to the terminal
