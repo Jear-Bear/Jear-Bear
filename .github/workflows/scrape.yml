@@ -1,8 +1,10 @@
-name: scrape
+name: Scrape Contributions
+
 on:
   schedule:
-    - cron: "30 */2 * * *"  # Runs every two hours, at the 30th minute
-  workflow_dispatch:  # Allows manual trigger from GitHub UI
+    - cron: '30 */2 * * *'  # Runs every 2 hours at 30 minutes past the hour
+  workflow_dispatch:  # Allows manual trigger
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -15,11 +17,20 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install required packages
+      - name: Install necessary packages
         run: |
-          sudo apt update
+          sudo apt purge -y chromium-browser
           sudo apt install -y chromium-browser
           pip install requests beautifulsoup4 pandas webdriver-manager selenium
 
       - name: Run the scraping script
         run: python scraper.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "Automated"
+          git config user.email "actions@users.noreply.github.com"
+          git add commits.txt
+          timestamp=$(date -u)
+          git commit -m "Latest data: ${timestamp}" || exit 0  # Avoid failing if no changes
+          git push
