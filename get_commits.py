@@ -1,30 +1,35 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+from bs4 import BeautifulSoup
+import time
 
-# Configure Chrome options for headless browsing
-chrome_options = Options()
-chrome_options.add_argument("--headless")  # Run headlessly
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument("--disable-dev-shm-usage")
+# Set up Chrome options
+options = webdriver.ChromeOptions()
+options.add_argument("--headless")  # Run headless Chrome
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
 
-# Initialize the WebDriver
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+# Create a new instance of the Chrome driver
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-# Replace with the desired GitHub URL
+# Open the GitHub profile page
 url = "https://github.com/Jear-Bear"
 driver.get(url)
 
-# Wait for the page to load completely
-driver.implicitly_wait(10)
+# Wait for the page to load
+time.sleep(5)  # Adjust the sleep time if necessary
 
-# Get the contributions element
-contributions_section = driver.find_element("css selector", "h2.f4.text-normal.mb-2")
+# Get the page source and parse it
+page_source = driver.page_source
+soup = BeautifulSoup(page_source, 'html.parser')
 
-# Output the contributions text
-contributions_text = contributions_section.text.strip()
-print(contributions_text)
+# Find all h2 elements with the specified class
+h2_elements = soup.find_all('h2', class_='f4 text-normal mb-2')
 
-# Clean up
+# Output each found h2 element
+for h2 in h2_elements:
+    print(h2.text.strip())
+
+# Close the browser
 driver.quit()
