@@ -28,6 +28,8 @@ page_text = soup.get_text().splitlines()
 # Loop through each line to find the desired pattern
 for i in range(len(page_text) - 2):
     if "contributions" in page_text[i + 1] and "in the last year" in page_text[i + 2]:
+        print({page_text[i]})
+        
         # Save the number to a file
         with open("commits.txt", "w") as file:
             file.write({page_text[i]})
