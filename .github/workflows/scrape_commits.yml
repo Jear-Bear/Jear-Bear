@@ -1,40 +1,46 @@
-name: Scrape Total Commits
+name: Scrape Commits and Update File
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-
-permissions:
-  contents: write
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
-  scrape-commits:
+  scrape_commits:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
+    - name: Checkout Repo
+      uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: |
-          pip install beautifulsoup4 requests
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
 
-      - name: Run the scrape script
-        run: |
-          python get_commits.py
-          cat total_commits.txt
+    - name: Install Dependencies
+      run: |
+        pip install selenium
+        sudo apt-get update
+        sudo apt-get install -y wget unzip xvfb
+        sudo apt-get install -y chromium-browser
+        wget -N https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/local/bin/chromedriver
+        sudo chmod +x /usr/local/bin/chromedriver
 
-      - name: Update commits.md with total commits
-        run: |
-          echo "Total Commits: $(cat total_commits.txt)" > commits.md
-          git config --local user.email "jperlmutter1@gmail.com"
-          git config --local user.name "jear-bear"
-          git add commits.md
-          git commit -m "Update commits.md with total commits"
-          git push
+    - name: Run Selenium Script
+      run: |
+        Xvfb :99 &  # Start Xvfb for headless Chrome
+        export DISPLAY=:99
+        python get_commits.py
+
+    - name: Commit and Push Results
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add commits.md
+        git commit -m "Update commits.md with total commits"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
