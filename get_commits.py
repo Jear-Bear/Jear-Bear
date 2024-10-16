@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import time
 
 # Set up Selenium WebDriver (e.g., using Chrome WebDriver)
+#yes
 driver = webdriver.Chrome()  # Make sure ChromeDriver is installed and in PATH
 url = "https://github.com/Jear-Bear"
 driver.get(url)
