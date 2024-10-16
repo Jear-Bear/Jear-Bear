@@ -34,9 +34,15 @@ if lines:
     # Print the first line
     print(first_line)
 
-    # Save the first line to commits.txt
+    # Split the line by spaces and extract the second element (the number of commits)
+    commit_count = first_line.split()[1]
+
+    # Print the extracted commit count
+    print(f"Number of commits: {commit_count}")
+
+    # Save the commit count to commits.txt
     with open("commits.txt", "w") as file:
-        file.write(first_line)
+        file.write(commit_count)
 else:
     print("No lines found containing 'Created'.")
 
