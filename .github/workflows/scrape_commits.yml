@@ -3,7 +3,7 @@ name: Scrape Total Commits
 on:
   push:
     branches:
-      - main  # Change this to your default branch if necessary
+      - main  # Adjust to your default branch
 
 jobs:
   scrape:
@@ -15,7 +15,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'  # Use the latest Python version
+          python-version: '3.x'  # Specify the Python version
 
       - name: Install dependencies
         run: |
@@ -24,4 +24,18 @@ jobs:
 
       - name: Run the scraper
         run: |
-          get_commits.py
+          python get_commits.py  # Ensure this matches your script's filename
+
+      - name: Create or update commits.md with total commits
+        run: |
+          # Read the total commits from the file
+          commits=$(cat total_commits.txt)
+          # Write to commits.md
+          echo "# Total Commits" > commits.md
+          echo "Total Commits: $commits" >> commits.md
+          # Commit the changes to commits.md
+          git config --local user.email "jperlmutter1@gmail.com"  # Update with your email
+          git config --local user.name "Jared"  # Update with your name
+          git add commits.md
+          git commit -m "Update commits.md with total commits"
+          git push origin main  # Adjust the branch as needed
