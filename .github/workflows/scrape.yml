@@ -1,13 +1,19 @@
-name: Scrape Contributions
+name: scrape
 
 on:
   schedule:
-    - cron: '30 */2 * * *'  # Runs every 2 hours at 30 minutes past the hour
-  workflow_dispatch:  # Allows manual trigger
+    - cron: '30 */2 * * *'  # Run every 2 hours at 30 minutes past the hour
+  workflow_dispatch:
+
+permissions:
+  contents: write  # Allow the bot to push changes to the repo
+  pages: write
+  id-token: write
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out this repo
         uses: actions/checkout@v2
@@ -17,20 +23,16 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install necessary packages
-        run: |
-          sudo apt purge -y chromium-browser
-          sudo apt install -y chromium-browser
-          pip install requests beautifulsoup4 pandas webdriver-manager selenium
+      # (Other steps like installing dependencies, running the script, etc.)
 
-      - name: Run the scraping script
-        run: python scraper.py
-
-      - name: Commit changes
+      - name: Configure Git
         run: |
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
+
+      - name: Commit changes
+        run: |
           git add commits.txt
           timestamp=$(date -u)
-          git commit -m "Latest data: ${timestamp}" || exit 0  # Avoid failing if no changes
+          git commit -m "Latest data: ${timestamp}" || exit 0
           git push
