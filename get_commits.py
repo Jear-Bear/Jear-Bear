@@ -2,28 +2,29 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-import time
 
-# Set up Chrome options
+# Configure Chrome options for headless browsing
 chrome_options = Options()
-chrome_options.add_argument("--headless")  # Run headless Chrome
+chrome_options.add_argument("--headless")  # Run headlessly
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-dev-shm-usage")
 
-# Create a new instance of the Chrome driver
+# Initialize the WebDriver
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
-try:
-    url = 'https://github.com/Jear-Bear'
-    driver.get(url)
+# Replace with the desired GitHub URL
+url = "https://github.com/Jear-Bear"
+driver.get(url)
 
-    # Wait for the page to load (you might need to adjust the sleep time)
-    time.sleep(3)
+# Wait for the page to load completely
+driver.implicitly_wait(10)
 
-    # Get the page source
-    html_content = driver.page_source
+# Get the contributions element
+contributions_section = driver.find_element("css selector", "h2.f4.text-normal.mb-2")
 
-    # Print the HTML content (you can also write this to a file)
-    print(html_content)
-finally:
-    driver.quit()
+# Output the contributions text
+contributions_text = contributions_section.text.strip()
+print(contributions_text)
+
+# Clean up
+driver.quit()
