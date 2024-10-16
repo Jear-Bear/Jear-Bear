@@ -20,10 +20,10 @@ driver.get("https://github.com/Jear-Bear")
 # Wait for the page to load
 time.sleep(5)
 
-# Extract the HTML content using BeautifulSoup
+# Extract the page source and parse it with BeautifulSoup
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find all the text on the page
+# Find all text on the page (with the updated method using 'string')
 all_text = soup.find_all(string=True)
 
 # Print each line of text found
