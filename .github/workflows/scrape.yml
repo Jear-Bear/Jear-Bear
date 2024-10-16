@@ -23,11 +23,12 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install Dependencies
+      # Install dependencies (if you have any)
+      - name: Install dependencies
         run: |
-          pip install beautifulsoup4 selenium webdriver-manager
+          pip install selenium beautifulsoup4 webdriver-manager
 
-      - name: Run Python Scraper
+      - name: Run the scraper
         run: python scraper.py
 
       - name: Configure Git
@@ -35,12 +36,13 @@ jobs:
           git config user.name "Automated"
           git config user.email "actions@users.noreply.github.com"
 
-      - name: Pull latest changes
-        run: git pull origin main
-
-      - name: Commit changes
+      - name: Check for changes and commit
         run: |
-          git add commits.txt
-          timestamp=$(date -u)
-          git commit -m "Latest contributions: ${timestamp}" || exit 0
-          git push
+          if [[ `git status --porcelain` ]]; then
+            git add README.md
+            timestamp=$(date -u)
+            git commit -m "Update total commits: ${timestamp}" || exit 0
+            git push
+          else
+            echo "No changes to commit"
+          fi
