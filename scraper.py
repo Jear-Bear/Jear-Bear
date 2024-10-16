@@ -23,16 +23,15 @@ time.sleep(5)
 # Extract the HTML content using BeautifulSoup
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find and print all lines that contain the word 'contributions'
-contributions_found = False
-for line in soup.stripped_strings:
-    if 'contributions' in line:
-        contributions_found = True
-        print(line)
+# Find all the text on the page
+all_text = soup.find_all(string=True)
 
-# If no 'contributions' were found, print a message
-if not contributions_found:
-    print("No contributions found.")
+# Print each line of text found
+if all_text:
+    for line in all_text:
+        print(line.strip())
+else:
+    print("No text found on the page.")
 
-# Close the WebDriver
+# Close the driver
 driver.quit()
