@@ -24,22 +24,22 @@ time.sleep(5)
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
 # Find all text lines that contain "Created"
-contributions = soup.find_all(string=lambda text: text and "Created" in text)
+contributions = [line.strip() for line in soup.find_all(string=lambda text: text and "Created" in text)]
 
-# Check if there are any contributions
-if contributions:
-    # Get the first line that starts with "Created"
-    first_line = next((line.strip() for line in contributions if line.startswith("Created")), None)
+# Check if there are at least two contributions
+if len(contributions) >= 2:
+    # Get the second line that starts with "Created"
+    second_line = contributions[1]
 
-    if first_line:
-        # Print the first line
-        print(first_line)
+    if second_line:
+        # Print the second line
+        print(second_line)
 
-        # Save the first line to commits.txt
+        # Save the second line to commits.txt
         with open("commits.txt", "w") as file:
-            file.write(first_line)
+            file.write(second_line)
 else:
-    print("No contributions found.")
+    print("Less than two contribution lines found.")
 
 # Close the driver
 driver.quit()
