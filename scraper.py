@@ -1,30 +1,22 @@
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import time
 import os
 
-# Set up the Chrome driver options
-chrome_options = Options()
-options = [
-    "--headless",
-    "--disable-gpu",
-    "--window-size=1920,1200",
-    "--ignore-certificate-errors",
-    "--disable-extensions",
-    "--no-sandbox",
-    "--disable-dev-shm-usage"
-]
-for option in options:
-    chrome_options.add_argument(option)
+# Set up Chrome options
+options = Options()
+options.add_argument('--headless')
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 
 # Set up the Chrome driver service
-chrome_service = Service(ChromeDriverManager().install())
+service = Service(ChromeDriverManager().install())
 
-# Initialize the Chrome driver
-driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
+# Initialize the Chrome driver with the service and options
+driver = webdriver.Chrome(service=service, options=options)
 
 # Navigate to the GitHub profile page
 driver.get("https://github.com/Jear-Bear")
@@ -41,13 +33,12 @@ for i in range(len(contributions)):
     if "contributions" in contributions[i]:
         if i + 1 < len(contributions) and "in the last year" in contributions[i + 1]:
             # Get the number of contributions
-            number_line = contributions[i - 1]  # This should be the number line
-            contribution_number = number_line.strip()  # Clean up spaces
-            print("Contributions in the last year:", contribution_number)
+            number_line = contributions[i - 1].strip()  # Clean up spaces
+            print("Contributions in the last year:", number_line)
 
             # Save the number to a file
             with open("commits.txt", "w") as file:
-                file.write(contribution_number)
+                file.write(number_line)
 
 # Close the driver
 driver.quit()
