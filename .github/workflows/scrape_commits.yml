@@ -28,7 +28,7 @@ jobs:
       - name: Run the scrape script
         run: |
           python get_commits.py
-          cat get_commits.txt
+          cat total_commits.txt
 
       - name: Update commits.md with total commits
         run: |
