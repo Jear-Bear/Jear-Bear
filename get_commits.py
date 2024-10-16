@@ -11,7 +11,7 @@ if response.status_code == 200:
     lines = html_content.splitlines()
 
     # Filter lines that contain the word "commit"
-    commit_lines = [line for line in lines if 'commit' in line.lower()]
+    commit_lines = [line for line in lines if 'contribution' in line.lower()]
 
     # Output the filtered lines
     for line in commit_lines:
