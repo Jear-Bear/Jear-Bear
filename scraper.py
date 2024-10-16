@@ -24,38 +24,38 @@ time.sleep(5)
 # Extract the page source and parse it with BeautifulSoup
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find all text lines that contain "contributions"
-lines = soup.find_all(string=lambda text: text and "contributions" in text.lower())
+# Find all lines containing "contributions in"
+lines = soup.find_all(string=lambda text: text and "contributions in" in text.lower())
 
-# Check if the contributions count line is in the line text
+# Check if any lines contain the contributions count
 if lines:
-    for line in lines:
-        line = line.strip().replace('\n', ' ')
-        if "contributions" in line.lower():  # Ensure the search is case-insensitive
-            print(line)  # Print the line for debugging
-            # Use regex to find a four-digit number after "contributions in"
-            match = re.search(r'(\d{4})', line)
-            if match:
-                contributions_count = match.group(1)  # Extract the first match
-                print(f"Number of contributions: {contributions_count}")
+    # Select the first line found
+    first_line = lines[0].strip().replace('\n', ' ')
+    print(f"Extracted line: {first_line}")  # Print the line for debugging
 
-                # Replace the contributions count in README.md
-                with open("README.md", "r") as file:
-                    readme_content = file.readlines()
+    # Use regex to find the contributions count
+    match = re.search(r'(\d+)\s+contributions\s+in', first_line)
+    if match:
+        contributions_count = match.group(1)  # Extract the first match
+        print(f"Number of contributions: {contributions_count}")
 
-                # Update the line with the new contributions count
-                for i, line in enumerate(readme_content):
-                    if "Total Commits" in line:
-                        readme_content[i] = line.replace("xxx", contributions_count)
-                        break
+        # Replace the contributions count in README.md
+        with open("README.md", "r") as file:
+            readme_content = file.readlines()
 
-                # Write back the updated README.md
-                with open("README.md", "w") as file:
-                    file.writelines(readme_content)
+        # Update the line with the new contributions count
+        for i, line in enumerate(readme_content):
+            if "Total Commits" in line:
+                # Replace whatever is between the specific markers with the contributions count
+                readme_content[i] = re.sub(r'Total_Commits-\d+', f'Total_Commits-{contributions_count}', line)
+                break
 
-                break  # Exit loop after finding the contributions count
+        # Write back the updated README.md
+        with open("README.md", "w") as file:
+            file.writelines(readme_content)
+
 else:
-    print("No lines found containing 'contributions'.")
+    print("No lines found containing contributions count.")
 
 # Close the driver
 driver.quit()
