@@ -22,21 +22,26 @@ time.sleep(5)
 # Extract the HTML content
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Extract all the text from the page as a list of lines
-page_text = soup.get_text().splitlines()
-
-# Loop through each line to find the desired pattern
-for i in range(len(page_text) - 2):
-    if "contributions" in page_text[i + 1] and "in the last year" in page_text[i + 2]:
-        print(f"Line containing number: {page_text[i]}")
+# Find the contributions block
+contribution_block = None
+for line in soup.find_all(string=True):
+    if "contributions" in line and "in the last year" in line.next_element:
+        contribution_block = line.previous_element.strip()
         break
 
-# Close the browser
-driver.quit()
+# Check if contribution_block has a valid value
+if contribution_block:
+    # Clean up the number by removing spaces/newlines
+    contribution_count = contribution_block.replace(" ", "").strip()
 
-# Git configuration and commit
-os.system("git config user.name 'Automated'")
-os.system("git config user.email 'actions@users.noreply.github.com'")
-os.system("git add commits.txt")
-os.system("git commit -m 'Update commits.txt with latest contributions'")
-os.system("git push")
+    # Print the result
+    print(f"Total contributions: {contribution_count}")
+
+    # Save the contribution count to a file
+    with open("commits.txt", "w") as file:
+        file.write(contribution_count)
+else:
+    print("No contributions found")
+
+# Close the driver
+driver.quit()
