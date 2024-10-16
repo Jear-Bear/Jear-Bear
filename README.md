@@ -1,7 +1,7 @@
 [![header](./banner.png)](https://jaredperlmutter.com)
 [![Profile Views](https://komarev.com/ghpvc/?username=jear-bear)](https://github.com/jear-bear)
-![GitHub Total Commits](https://img.shields.io/github/commit-activity/all/jear-bear/jear-bear?label=Total%20Commits&logo=github&color=blue)
-![GitHub Total Stars](https://img.shields.io/github/stars/jear-bear?label=Total%20Stars&logo=github&color=yellow)
+![Total Commits](https://img.shields.io/github/commit-activity/y/jear-bear/jear-bear?label=Total%20Commits&logo=github&color=blue)
+![Total Stars](https://img.shields.io/github/stars/jear-bear/jear-bear?label=Total%20Stars&logo=github&color=yellow)
 
 ## Hi there, I'm Jared! 👋
 
