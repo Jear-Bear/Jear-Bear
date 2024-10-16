@@ -24,10 +24,10 @@ time.sleep(5)
 # Extract the page source and parse it with BeautifulSoup
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find all lines containing "contributions in"
-lines = soup.find_all(string=lambda text: text and "contributions in" in text.lower())
+# Find all lines containing "contributions"
+lines = soup.find_all(string=lambda text: text and "contributions" in text.lower())
 
-# Check if any lines contain the contributions count
+# Check if any lines contain contributions count
 if lines:
     # Select the first line found
     first_line = lines[0].strip().replace('\n', ' ')
@@ -46,7 +46,7 @@ if lines:
         # Update the line with the new contributions count
         for i, line in enumerate(readme_content):
             if "Total Commits" in line:
-                # Replace whatever is between the specific markers with the contributions count
+                # Replace the existing number in the line with the contributions count
                 readme_content[i] = re.sub(r'Total_Commits-\d+', f'Total_Commits-{contributions_count}', line)
                 break
 
