@@ -1,37 +1,25 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-import time
+import re
 
-# Set up Chrome options for headless mode
-chrome_options = Options()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--disable-gpu")
-chrome_options.add_argument("--window-size=1920,1200")
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument("--disable-dev-shm-usage")
+# Set up the Chrome driver
+driver = webdriver.Chrome(ChromeDriverManager().install())
 
-# Initialize the Chrome driver
-chrome_service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
-
-# Navigate to your GitHub profile page
+# Navigate to the GitHub profile page
 driver.get("https://github.com/Jear-Bear")
 
-# Wait for the page to fully load
-time.sleep(5)
-
-# Parse the HTML content using BeautifulSoup
+# Extract the HTML content
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find all elements containing the word "contribution"
-elements_with_contribution = soup.find_all(string=lambda text: "contribution" in text.lower())
+# Find the element that contains the "contributions in the last year" information
+contributions_text = soup.find('h2', class_='f4 text-normal mb-2').get_text(strip=True)
 
-# Print out all the elements containing the word "contribution"
-for element in elements_with_contribution:
-    print(element)
+# Use regex to extract the number of contributions
+contributions_number = re.search(r'\d+', contributions_text).group()
 
-# Close the browser
+# Print the number of contributions
+print("Total Contributions in the Last Year:", contributions_number)
+
+# Close the driver
 driver.quit()
