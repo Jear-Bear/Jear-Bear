@@ -1,4 +1,4 @@
-name: Fetch HTML
+name: Get GitHub Contributions
 
 on:
   push:
@@ -6,27 +6,29 @@ on:
       - main
 
 jobs:
-  fetch-html:
+  fetch_commits:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
+      
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.12'  # Specify the version you want
+          python-version: '3.12'
 
       - name: Install dependencies
         run: |
-          pip install requests  # Install the requests library
-
-      - name: Run get_commits.py
+          pip install selenium webdriver-manager
+      
+      - name: Fetch HTML from GitHub
         run: |
-          python get_commits.py > output.html  # Redirect output to a file
-
-      - name: Display fetched HTML
+          python get_commits.py > output.html
+      
+      - name: Filter for commits
         run: |
-          echo "HTML fetched successfully."
-          cat output.html  # Display the fetched HTML in the logs
+          grep -i "commit" output.html > filtered_commits.txt
+      
+      - name: Display filtered commits
+        run: |
+          cat filtered_commits.txt
