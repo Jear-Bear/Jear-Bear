@@ -21,41 +21,13 @@ jobs:
       run: |
         pip install selenium beautifulsoup4 webdriver-manager
 
-    - name: Scrape commits
-      run: |
-        echo "from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from bs4 import BeautifulSoup
-
-# Set up the web driver
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-
-# Replace with your URL
-url = 'https://github.com/Jear-Bear'
-driver.get(url)
-
-# Get the page source
-html = driver.page_source
-soup = BeautifulSoup(html, 'html.parser')
-
-# Extract h2 elements and contributions
-h2_elements = soup.find_all('h2', class_='f4 text-normal mb-2')
-contributions = [element.get_text(strip=True) for element in h2_elements]
-
-# Write to commits.md
-with open('commits.md', 'w') as file:
-    for contribution in contributions:
-        file.write(f'- {contribution}\\n')
-
-driver.quit()" > get_commits.py
-
-        python get_commits.py
+    - name: Run get_commits.py
+      run: python get_commits.py
 
     - name: Push changes
       run: |
         git config --global user.email "jperlmutter1@example.com"
-        git config --global user.name "jaredperlmutter"
+        git config --global user.name "jear-bear"
         git add commits.md
         git commit -m "Update commits.md with latest data"
         git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/Jear-Bear/Jear-Bear.git main --quiet --force
