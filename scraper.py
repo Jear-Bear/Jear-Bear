@@ -1,61 +1,52 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import time
+import os
 
-# Set up Chrome WebDriver with options
-service = Service(executable_path=ChromeDriverManager().install())
+service = Service(executable_path=r'/usr/bin/chromedriver')
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
-
-# Start the Chrome driver
 driver = webdriver.Chrome(service=service, options=options)
 
 # Navigate to the GitHub profile page
 driver.get("https://github.com/Jear-Bear")
 
-# Wait for the page to fully load
+# Wait for the page to load
 time.sleep(5)
 
-# Extract the page source and parse it with BeautifulSoup
+# Extract the HTML content
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find all text lines that contain "Created"
-lines = soup.find_all(string=lambda text: text and "Created" in text)
+# Find the contributions block
+contribution_activity = None
+for line in soup.find_all(string=True):
+    if line.startswith("Created"):
+        contribution_activity = line
+        break
 
-# Select the first line containing "Created"
-if lines:
-    # Remove leading/trailing spaces and line breaks
-    first_line = lines[0].strip().replace('\n', ' ')
-    
-    # Split the line by spaces and extract the second element (the number of commits)
-    commit_count = first_line.split()[1]
+if contribution_activity:
+    # Split the line and extract the number of commits
+    commit_count = contribution_activity.split()[1]
 
-    # Print the extracted commit count
-    print(f"Number of commits: {commit_count}")
+    # Read the README.md file
+    with open("README.md", "r") as file:
+        lines = file.readlines()
 
-    # Read the contents of readme.md
-    with open("readme.md", "r") as file:
-        content = file.readlines()
+    # Update the specific line
+    for i, line in enumerate(lines):
+        if "![Total Commits](https://img.shields.io/badge/Total_Commits-" in line:
+            # Replace the number with the actual commit count
+            lines[i] = line.split("Total_Commits-")[0] + f"Total_Commits-{commit_count}-green)" + "\n"
+            break
 
-    # Update the line with the commit count
-    for i in range(len(content)):
-        if "![Total Commits](https://img.shields.io/badge/Total_Commits-" in content[i]:
-            # Use a regular expression to replace the number
-            content[i] = content[i].replace(
-                content[i].split("Total_Commits-")[1].split("-green")[0],
-                commit_count
-            )
-
-    # Write the updated content back to readme.md
-    with open("readme.md", "w") as file:
-        file.writelines(content)
-
-else:
-    print("No lines found containing 'Created'.")
+    # Write the updated lines back to the README.md file
+    with open("README.md", "w") as file:
+        file.writelines(lines)
 
 # Close the driver
 driver.quit()
