@@ -47,7 +47,7 @@ if lines:
         for i, line in enumerate(readme_content):
             if "Total Commits" in line:
                 # Replace the existing number in the line with the contributions count
-                readme_content[i] = re.sub(r'Total_Commits-\d+', f'Total_Commits-{contributions_count}', line)
+                readme_content[i] = re.sub(r'Commits_This_Year-\d+', f'Commits_This_Year-{contributions_count}', line)
                 break
 
         # Write back the updated README.md
