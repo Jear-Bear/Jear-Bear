@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.service import Service
 # Set up Chrome options
 chrome_options = Options()
 options = [
-    "--headless",  # Run headlessly
+    "--headless",  # Run in headless mode for CI
     "--disable-gpu",
     "--window-size=1920,1200",
     "--ignore-certificate-errors",
@@ -23,7 +23,7 @@ chrome_service = Service(ChromeDriverManager().install())
 # Initialize the WebDriver
 driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
-# Navigate to a URL
+# Navigate to your desired URL
 driver.get('http://nytimes.com')
 
 # Print the page title
