@@ -20,12 +20,16 @@
   <img src="https://cdn.svgporn.com/logos/python.svg" alt="Python" height="30"/>
 </div>
 
+<br>
+
 **Libraries/Tools:**
 <div>
   <img src="https://cdn.svgporn.com/logos/opencv.svg" alt="OpenCV" height="30"/>&nbsp;&nbsp;&nbsp;
   <img src="https://cdn.svgporn.com/logos/npm.svg" alt="NPM" height="30"/>&nbsp;&nbsp;&nbsp;
   <img src="https://cdn.svgporn.com/logos/sap.svg" alt="SAP" height="30"/>
 </div>
+
+<br>
 
 **IDEs:**
 <div>
@@ -36,6 +40,8 @@
   <img src="https://cdn.svgporn.com/logos/mysql.svg" alt="MySQL Workbench" height="30"/>&nbsp;&nbsp;&nbsp;
   <img src="https://cdn.svgporn.com/logos/oracle.svg" alt="Oracle Live SQL" height="30"/>
 </div>
+
+<br>
 
 **Applications:**
 <div>
