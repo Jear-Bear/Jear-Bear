@@ -15,11 +15,12 @@ time.sleep(5)
 # Extract the HTML content
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find the total commits count
-total_commits = soup.find('h2', class_='f4 text-normal mb-2').get_text(strip=True)
+# Find the relevant information you want to scrape (example: total contributions)
+# Adjust the selector based on the actual structure of your profile page
+commit_count = soup.find('h2', class_='f4 text-normal mb-2').get_text(strip=True)
 
 # Print the total commits count to the terminal
-print("Total Commits:", total_commits)
+print("Total Commits:", commit_count)
 
 # Close the driver
 driver.quit()
