@@ -19,9 +19,8 @@ soup = BeautifulSoup(driver.page_source, 'html.parser')
 # Find the total commits count
 total_commits = soup.find('h2', class_='f4 text-normal mb-2').get_text(strip=True)
 
-# Write the total commits count to a file
-with open("total_commits.txt", "w") as file:
-    file.write(total_commits)  # total_commits now holds the correct text
+# Output the total commits count to the terminal
+print(total_commits)
 
 # Close the driver
 driver.quit()
