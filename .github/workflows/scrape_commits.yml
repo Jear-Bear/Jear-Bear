@@ -1,8 +1,8 @@
-name: Scrape GitHub Commits
+name: Scrape GitHub Profile
 
 on:
   schedule:
-    - cron: '0 * * * *'  # This will run the workflow every hour (adjust as needed)
+    - cron: '0 * * * *'  # Runs every hour (adjust as needed)
 
 jobs:
   scrape:
