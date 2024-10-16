@@ -2,35 +2,27 @@ name: Fetch Commits
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  fetch-commits:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.12'
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
 
-      - name: Install dependencies
-        run: |
-          pip install selenium webdriver-manager
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
 
-      - name: Run Python script
-        run: |
-          python get_commits.py > output.html
-
-      - name: Check output file
-        run: |
-          ls -la  # List files
-          cat output.html  # Display contents of output.html
-
-      - name: Filter commits
-        run: |
-          grep -i "commit" output.html > filtered_commits.txt
+    - name: Run Python script
+      run: |
+        python get_commits.py > output.html
