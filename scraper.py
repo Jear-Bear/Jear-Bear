@@ -21,5 +21,5 @@ for option in options:
 
 driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
-driver.get('https://github.com/Jear-Bear')
+driver.get('http://nytimes.com')
 print(driver.title)
