@@ -6,16 +6,11 @@ from bs4 import BeautifulSoup
 import time
 import os
 
-# Set up Chrome options
-options = Options()
+service = Service(executable_path=r'/usr/bin/chromedriver')
+options = webdriver.ChromeOptions()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
-
-# Set up the Chrome driver service using ChromeDriverManager
-service = Service(executable_path=ChromeDriverManager().install())
-
-# Initialize the Chrome driver with the service and options
 driver = webdriver.Chrome(service=service, options=options)
 
 # Navigate to the GitHub profile page
