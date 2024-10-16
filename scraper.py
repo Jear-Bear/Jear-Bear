@@ -1,17 +1,29 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-from bs4 import BeautifulSoup
-import time
-
-# Set up the Chrome driver with options
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+
+# Set up the Chrome driver options
 chrome_options = Options()
-chrome_options.add_argument("--headless")  # Run Chrome in headless mode
+options = [
+    "--headless",
+    "--disable-gpu",
+    "--window-size=1920,1200",
+    "--ignore-certificate-errors",
+    "--disable-extensions",
+    "--no-sandbox",
+    "--disable-dev-shm-usage"
+]
+for option in options:
+    chrome_options.add_argument(option)
 
-# Initialize the driver
-driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+# Set up the Chrome driver service
+chrome_service = Service(ChromeDriverManager().install())
 
-# Navigate to your GitHub contributions page
+# Initialize the Chrome driver with service and options
+driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
+
+# Your scraping logic goes here
 driver.get("https://github.com/Jear-Bear")
 
 # Wait for the page to load
