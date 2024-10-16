@@ -22,19 +22,17 @@ time.sleep(5)
 # Extract the HTML content
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find the contributions block
-contributions = soup.find_all(text="contributions")
-for i in range(len(contributions)):
-    if "contributions" in contributions[i]:
-        if i + 1 < len(contributions) and "in the last year" in contributions[i + 1]:
-            # Get the number of contributions
-            number_line = contributions[i - 1].strip()  # Clean up spaces
-            print("Contributions in the last year:", number_line)
+# Extract all the text from the page as a list of lines
+page_text = soup.get_text().splitlines()
 
-            # Save the number to a file
-            with open("commits.txt", "w") as file:
-                file.write(number_line)
-
+# Loop through each line to find the desired pattern
+for i in range(len(page_text) - 2):
+    if "contributions" in page_text[i + 1] and "in the last year" in page_text[i + 2]:
+        # Save the number to a file
+        with open("commits.txt", "w") as file:
+            file.write({page_text[i]})
+        break
+        
 # Close the driver
 driver.quit()
 
