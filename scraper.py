@@ -23,15 +23,15 @@ time.sleep(5)
 # Extract the page source and parse it with BeautifulSoup
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Find all text on the page (with the updated method using 'string')
-all_text = soup.find_all(string=True)
+# Find all text lines that start with "Created"
+created_lines = soup.find_all(string=lambda text: text and text.lower().startswith("created"))
 
-# Print each line of text found
-if all_text:
-    for line in all_text:
+# Print each line that starts with "Created"
+if created_lines:
+    for line in created_lines:
         print(line.strip())
 else:
-    print("No text found on the page.")
+    print("No lines starting with 'Created' found on the page.")
 
 # Close the driver
 driver.quit()
