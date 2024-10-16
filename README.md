@@ -4,7 +4,8 @@
 ## Hi there, I'm Jared! 👋
 
 
-![Jared's GitHub Stats](https://github-readme-stats.vercel.app/api?username=jear-bear&show_icons=true&theme=radical&hide=contribs,prs,issues&custom_title=GitHub%20Stats&include_all_commits=true)
+![GitHub Commits](https://img.shields.io/github/commit-activity/y/jear-bear/jear-bear?label=Commits&logo=github&color=blue)
+![GitHub Stars](https://img.shields.io/github/stars/jear-bear/jear-bear?label=Stars&logo=github&color=yellow)
 
 
 
