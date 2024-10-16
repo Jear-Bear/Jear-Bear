@@ -1,14 +1,20 @@
 import requests
 
-# Hardcoded URL
 url = 'https://github.com/Jear-Bear'
-
-# Fetch HTML from the specified URL
 response = requests.get(url)
 
 # Check if the request was successful
 if response.status_code == 200:
     html_content = response.text
-    print(html_content)
+
+    # Split the HTML content into lines
+    lines = html_content.splitlines()
+
+    # Filter lines that contain the word "commit"
+    commit_lines = [line for line in lines if 'commit' in line.lower()]
+
+    # Output the filtered lines
+    for line in commit_lines:
+        print(line)
 else:
-    print(f"Failed to retrieve HTML. Status code: {response.status_code}")
+    print(f"Failed to retrieve the page. Status code: {response.status_code}")
