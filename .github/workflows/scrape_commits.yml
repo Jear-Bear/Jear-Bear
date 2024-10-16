@@ -1,40 +1,32 @@
-name: Update Commits
+name: Fetch HTML
 
 on:
-  schedule:
-    - cron: '0 * * * *'  # Runs every hour
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  update_commits:
+  fetch-html:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.12'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'  # Specify the version you want
 
-    - name: Install Dependencies
-      run: |
-        pip install selenium beautifulsoup4
-        sudo apt-get update
-        sudo apt-get install -y wget unzip xvfb
-        sudo apt-get install -y chromium-browser
-        # Update ChromeDriver to match installed Chrome version
-        wget -N https://chromedriver.storage.googleapis.com/129.0.6638.0/chromedriver_linux64.zip
-        unzip chromedriver_linux64.zip
-        sudo mv chromedriver /usr/local/bin/chromedriver
-        sudo chmod +x /usr/local/bin/chromedriver
+      - name: Install dependencies
+        run: |
+          pip install requests  # Install the requests library
 
-    - name: Run Xvfb for headless Chrome
-      run: Xvfb :99 &
+      - name: Run get_commits.py
+        run: |
+          python get_commits.py > output.html  # Redirect output to a file
 
-    - name: Run Python Script
-      run: python get_commits.py
-
-    - name: Read the total commits from the file
-      run: cat total_commits.txt
+      - name: Display fetched HTML
+        run: |
+          echo "HTML fetched successfully."
+          cat output.html  # Display the fetched HTML in the logs
