@@ -31,18 +31,29 @@ if lines:
     # Remove leading/trailing spaces and line breaks
     first_line = lines[0].strip().replace('\n', ' ')
     
-    # Print the first line
-    print(first_line)
-
     # Split the line by spaces and extract the second element (the number of commits)
     commit_count = first_line.split()[1]
 
     # Print the extracted commit count
     print(f"Number of commits: {commit_count}")
 
-    # Save the commit count to commits.txt
-    with open("commits.txt", "w") as file:
-        file.write(commit_count)
+    # Read the contents of readme.md
+    with open("readme.md", "r") as file:
+        content = file.readlines()
+
+    # Update the line with the commit count
+    for i in range(len(content)):
+        if "![Total Commits](https://img.shields.io/badge/Total_Commits-" in content[i]:
+            # Use a regular expression to replace the number
+            content[i] = content[i].replace(
+                content[i].split("Total_Commits-")[1].split("-green")[0],
+                commit_count
+            )
+
+    # Write the updated content back to readme.md
+    with open("readme.md", "w") as file:
+        file.writelines(content)
+
 else:
     print("No lines found containing 'Created'.")
 
