@@ -78,5 +78,5 @@ When I'm not programming, you can find me:
 ## Quote I Live By
 *「一日を甘んじて、悠々生きるのは大切だ」*
 
-*It's important to live each day with ease and acceptance.*
+*It's important to take each day as it comes and live at ease.*
 
