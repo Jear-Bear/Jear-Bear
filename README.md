@@ -1,6 +1,6 @@
 [![header](./banner.png)](https://jaredperlmutter.com)
 [![Profile Views](https://komarev.com/ghpvc/?username=jear-bear)](https://github.com/jear-bear)
-![Total Commits](https://img.shields.io/badge/Commits_This_Year-704-green)
+![Total Commits](https://img.shields.io/badge/Commits_This_Year-705-green)
 ![Tota Stars](https://img.shields.io/github/stars/jear-bear)
 
 
